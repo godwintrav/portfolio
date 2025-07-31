@@ -86,7 +86,7 @@
 		            <h2 class="mb-4">About Me</h2>
 		            <p></p>
 		            <ul class="about-info mt-4 px-md-0 px-2">
-		            	<li><p>Innovative and impact-driven Software Engineer with over 5 years of proven success delivering scalable backend systems, cutting-edge cloud architectures, and pioneering blockchain solutions across global markets. Recognized for technical leadership at Sky UK, where I architected mission-critical systems supporting over 40 million users, and led platform transformations using AWS, Node.js, and machine learning. Adept at transforming complex problems into elegant, high-performance solutions, mentoring teams, and shaping the future of digital technology. Passionate about building technologies that drive user value and global impact.</p></li>
+		            	<li><p>Passionate, innovative, and impact-oriented Software Engineer with more than 5 years of experience developing innovative frontend and backend systems, cloud infrastructures, and blockchain technology implementations around the world. Known as a technical leader at Sky UK for my role in designing and implementing mission-critical system architectures serving 40+ million users and subsequently executing AWS, Node.js, and machine learning based platform wide upgrades and AWS based system wide upgrades. Exceptional in problem-solving and designing sophisticated, high-performance systems, coaching, and guiding teams, and advancing the digital technology industry. Committed to designing and developing systems and services that create global impact.</p></li>
 		            	<li class="d-flex"><span>Name:</span> <span class="my_name">Odenigbo Godwin</span></li>
 		            	<!-- <li class="d-flex"><span>Date of birth:</span> <span class="my_dob">January 12 2001</span></li> -->
 		            	<li class="d-flex"><span>Address:</span> <span class="my_address">Lagos, Nigeria</span></li>
@@ -151,6 +151,7 @@
 					      <li><a href="#page-2">Experience</a></li>
 					      <li><a href="#page-3">Skills</a></li>
 						  <li><a href="#page-4">Database(s)</a></li>
+						  <li><a href="#page-5">Certifications</a></li>
 					    </ul>
 					  </nav>
 					</div>
@@ -189,9 +190,14 @@
 					  	<div class="row progress-circle mb-5" id="career_skills">
 					  	</div>
 					  </div>
-					  <div id="page-4" class= "page three">
+					  <div id="page-4" class= "page four">
 						<h2 class="heading">Database(s)</h2>
 						<div class="row progress-circle mb-5" id="databases">
+						</div>
+					</div>
+					<div id="page-5" class= "page five">
+						<h2 class="heading">Certifications</h2>
+						<div class="row progress-circle mb-5" id="certifications">
 						</div>
 					</div>
 					</div>
@@ -385,6 +391,10 @@
 			"MySQL", "NoSQL", "MongoDB", "PostgresSQL", "DynamoDB"
 	];
 
+	const certifications = [
+			"AWS Certified Cloud Practitioner – Foundational"
+	];
+
 	function renderExperience() {
         let experienceParent = $("#page-2");
         myExperience.map(data => {
@@ -547,6 +557,22 @@
 		
 	}
 
+	function  renderCertifications() {
+		let element = $("#certifications");
+		
+		
+		certifications.map(data => {
+			let _imgHTML = "";
+			_imgHTML += renderCareerSkill(data);
+			let _html = `
+				${_imgHTML}
+			`;
+			element.append(_html);
+		});
+		
+		
+	}
+
 	window.onload = async function() {
         await renderExperience();
 		await renderProjects();
@@ -554,6 +580,7 @@
 		await renderAbout();
 		await renderCareerSkills();
 		await renderDatabases();
+		await renderCertifications();
     }
 
 	function renderProjectItem(data, img) {
